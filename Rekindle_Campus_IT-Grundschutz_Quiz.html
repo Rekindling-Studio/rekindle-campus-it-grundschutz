@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <title>Quiz – Informationssicherheit & Datenschutz</title>
+    <style>
+        body { font-family: Arial, sans-serif; padding: 30px; background-color: #f4f4f9; }
+        h1 { color: #333366; }
+        .quiz-question { margin-bottom: 20px; background: #fff; padding: 20px; border-radius: 8px; box-shadow: 0 0 5px rgba(0,0,0,0.1); }
+        .question-title { font-weight: bold; }
+        button { margin-top: 20px; padding: 10px 20px; font-size: 16px; }
+    </style>
+</head>
+<body>
+    <h1>Quiz – Informationssicherheit & Datenschutz</h1>
+
+    <form id="quizForm">
+        <div class="quiz-question">
+            <div class="question-title">1. Welche Rolle trägt die Gesamtverantwortung für Informationssicherheit im Unternehmen?</div>
+            <label><input type="radio" name="q1" value="richtig"> Obere Leitungsebene</label><br>
+            <label><input type="radio" name="q1" value="falsch"> Datenschutzbeauftragter</label><br>
+            <label><input type="radio" name="q1" value="falsch"> IT-Mitarbeitende</label>
+        </div>
+
+        <div class="quiz-question">
+            <div class="question-title">2. Welches Gesetz ist die Grundlage für Datenschutz in ganz Europa?</div>
+            <label><input type="radio" name="q2" value="richtig"> EU-DSGVO</label><br>
+            <label><input type="radio" name="q2" value="falsch"> BSI-Gesetz</label><br>
+            <label><input type="radio" name="q2" value="falsch"> IT-Sicherheitsgesetz</label>
+        </div>
+
+        <div class="quiz-question">
+            <div class="question-title">3. Was beschreibt der Begriff "ISMS"?</div>
+            <label><input type="radio" name="q3" value="richtig"> Informationssicherheits-Managementsystem</label><br>
+            <label><input type="radio" name="q3" value="falsch"> Internet Sicherheits-Maßnahmen-Set</label><br>
+            <label><input type="radio" name="q3" value="falsch"> Industrielles Sicherheitssystem</label>
+        </div>
+
+        <div class="quiz-question">
+            <div class="question-title">4. Wie hoch können Bußgelder laut DSGVO ausfallen?</div>
+            <label><input type="radio" name="q4" value="falsch"> Max. 1 Mio. Euro</label><br>
+            <label><input type="radio" name="q4" value="falsch"> Max. 10 Mio. Euro</label><br>
+            <label><input type="radio" name="q4" value="richtig"> Bis zu 20 Mio. Euro oder 4 % des Jahresumsatzes</label>
+        </div>
+
+        <button type="button" onclick="auswerten()">Auswerten</button>
+    </form>
+
+    <p id="ergebnis" style="font-weight:bold; margin-top:30px;"></p>
+
+    <script>
+        function auswerten() {
+            let richtig = 0;
+            const fragen = ['q1', 'q2', 'q3', 'q4'];
+            fragen.forEach(q => {
+                const checked = document.querySelector('input[name=' + q + ']:checked');
+                if (checked && checked.value === "richtig") richtig++;
+            });
+            document.getElementById("ergebnis").innerText = "Du hast " + richtig + " von 4 Fragen richtig beantwortet.";
+        }
+    </script>
+</body>
+</html>
